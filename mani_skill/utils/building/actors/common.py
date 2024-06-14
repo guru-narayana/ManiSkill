@@ -262,3 +262,34 @@ def build_colorful_cube(
         ),
     )
     return _build_by_type(builder, name, body_type)
+
+def build_hollow_cylinder(
+    scene: ManiSkillScene,
+    outer_radius: float,
+    inner_radius: float,
+    height: float,
+    outer_color,
+    inner_color,
+    name: str,
+    body_type: str = "dynamic",
+    add_collision: bool = True,
+):
+    if inner_radius >= outer_radius:
+        raise ValueError("Inner radius must be smaller than outer radius to create a hollow cylinder.")
+    builder = scene.create_actor_builder()
+    if add_collision:
+        builder.add_cylinder_collision(
+            radius=outer_radius,
+            half_length=height,
+        )
+    builder.add_cylinder_visual(
+        radius=outer_radius,
+        half_length=height,
+        material=sapien.render.RenderMaterial(base_color=outer_color),
+    )
+    builder.add_cylinder_visual(
+        radius=inner_radius,
+        half_length=height + 1e-3,  # Add a small height to make it visible
+        material=sapien.render.RenderMaterial(base_color=inner_color), 
+    )
+    return _build_by_type(builder, name, body_type)
