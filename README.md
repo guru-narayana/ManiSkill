@@ -1,5 +1,9 @@
-# ManiSkill 3 (Beta)
+# Roll and Throw Environments
 
+![](https://github.com/guru-narayana/ManiSkill/blob/main/figures/environment_demos/RollBall.gif)
+![](https://github.com/guru-narayana/ManiSkill/blob/main/figures/environment_demos/Throw.gif)
+
+# ManiSkill 3 (Beta)
 ![teaser](figures/teaser.png)
 <p style="text-align: center; font-size: 0.8rem; color: #999;margin-top: -1rem;">Sample of environments/robots rendered with ray-tracing. Scene datasets sourced from AI2THOR and ReplicaCAD</p>
 
